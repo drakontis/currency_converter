@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use SCSS for stylesheets
@@ -32,6 +31,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'mongoid-rspec'
 end
 
 # Use ActiveModel has_secure_password
