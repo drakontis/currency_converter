@@ -18,7 +18,7 @@ describe ExchangeRate do
   end
 
   describe '#new' do
-    it 'should create a new custom list' do
+    it 'should create a new exchange rate' do
       exchange_rate = ExchangeRate.new(from_currency: 'EUR', to_currency: 'USD', rate: 1.23, date: '2010-11-20')
 
       expect(exchange_rate).not_to be_persisted
@@ -30,7 +30,7 @@ describe ExchangeRate do
   end
 
   describe '#save' do
-    it 'should create a new custom list' do
+    it 'should save an exchange rate' do
       exchange_rate = ExchangeRate.new(from_currency: 'EUR', to_currency: 'USD', rate: 1.23, date: '2010-11-20')
 
       exchange_rate.save
