@@ -6,6 +6,8 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'mongoid-rspec'
+require 'database_cleaner'
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -58,6 +60,21 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+
+DatabaseCleaner.strategy = :truncation
+
 RSpec.configure do |config|
   config.include Mongoid::Matchers, type: :model
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.append_after(:each) do
+    DatabaseCleaner.clean
+  end
 end
+
+
+# then, whenever you need to clean the DB
+# DatabaseCleaner.clean

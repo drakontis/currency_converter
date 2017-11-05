@@ -32,6 +32,7 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'mongoid-rspec'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password
