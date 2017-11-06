@@ -68,6 +68,15 @@ To create the database indexes, run:
 rake db:mongoid:create_indexes
 ```
 
+Create the necessary folders
+
+```
+mkdir exchange_rates
+mkdir exchange_rates/test
+mkdir exchange_rates/development
+mkdir exchange_rates/production
+```
+
 To fetch and populate the database, run the following rake task:
 ```
 rake exchange_rates:load[from_currency,to_currency]
