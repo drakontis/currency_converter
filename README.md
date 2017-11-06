@@ -18,6 +18,11 @@ As I said before, the ECB does not provide exchange rates for weekends and holid
 In order to improve the exchange_rate_converter's performance, I decided to store in our Datastore the exchange rate for these days. 
 By doing this, it doesn't have to search for previous available exchange rates, instead It has the desired exchange rate by just one query in the database.
 
+When storing the exchange rate, I chose to iterate all the exchange rate entries in the CSV file instead of only the new ones. 
+This is in order to update the entries that for any reason have a different exchange rate than before (bank changed the value in the CSV, someone changed the value in our database, etc) with the exchange rate in the current CSV file.
+
+## Future improvements
+In order to improve the performance of the exchange rates storing, we can split the process that updates the existing data in a separate rake task.   
 
 ## Usage
 To run the application you should have the following software installed:
